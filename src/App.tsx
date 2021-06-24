@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Input from "./components/input/input";
+import {IdataList, IinputData} from "./interface";
+
 
 function App() {
+    const [value , setValue] = useState<IinputData>({Fname : "" , Lname : ""})
+    const [data , setData] = useState<IinputData[]>([])
+
+    function addMember(){
+        setData([...data , value])
+        setValue({Fname : "" , Lname : ""})
+    }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+          {console.log(value)}
+          {console.log(data)}
+          <Input name={"Fname"} label={"First Name"} value={value} setValue={setValue} />
+          <Input name={"Lname"} label={"Last Name"} value={value} setValue={setValue} />
+          <button onClick={addMember}>Add</button>
+      </>
   );
 }
 
