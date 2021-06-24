@@ -2,8 +2,9 @@ export interface Iinput{
     name : string;
     id? : string;
     label : string;
-    value : IinputData;
+    fullValue : IinputData;
     setValue : Function;
+    value : string
 }
 
 export interface IinputData{
@@ -11,6 +12,13 @@ export interface IinputData{
     Lname : string
 }
 
-export interface IdataList{
-    data : IinputData[]
+export interface Ihuman{
+    Fname : string;
+    Lname : string;
+    id : number
+}
+
+export interface ItableData{
+    data : Ihuman[],
+    delete : Function
 }
