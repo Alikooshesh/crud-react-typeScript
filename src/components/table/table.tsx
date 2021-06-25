@@ -21,7 +21,7 @@ const Table:React.FC<ItableData> = (props)=> {
                             <td>{item.Fname}</td>
                             <td>{item.Lname}</td>
                             <td>
-                                <button type="button" className="btn btn-warning mr-2">Edit</button>
+                                <button type="button" className="btn btn-warning mr-2" onClick={()=> props.edit(item.id)}>Edit</button>
                                 <button type="button" className="btn btn-danger" onClick={()=> props.delete(item.id)}>Delete</button>
                             </td>
                         </tr>

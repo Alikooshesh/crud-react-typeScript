@@ -18,7 +18,8 @@ export interface Ihuman{
     id : number
 }
 
-export interface ItableData{
-    data : Ihuman[],
-    delete : Function
+export interface ItableData {
+    data: Ihuman[],
+    delete: Function,
+    edit: Function,
 }

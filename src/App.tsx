@@ -20,13 +20,31 @@ function App() {
         setData([...data.filter(item => item.id != id)])
         return "Deleted"
     }
+
+    async function editData(id:number) {
+        const newFname:string|null = prompt("First Name : ")
+        const newLname:string|null = prompt("Last Name : ")
+        if (newFname && newLname ){
+            const tempData:Ihuman[] = [...data]
+            const finder:number = tempData.findIndex(item => item.id == id)
+            tempData[finder].Fname = newFname
+            tempData[finder].Lname = newLname
+            setData([...tempData])
+
+
+        }else{
+            editData(id)
+        }
+    }
+
   return (
       <>
+          {console.log(data)}
           <Input name={"Fname"} label={"First Name"} fullValue={value} setValue={setValue} value={value.Fname}/>
           <Input name={"Lname"} label={"Last Name"} fullValue={value} setValue={setValue} value={value.Lname}/>
           <button onClick={addMember}>Add</button>
           <br/>
-          <Table data={data} delete={delData}></Table>
+          <Table data={data} delete={delData} edit={editData}></Table>
       </>
   );
 }
